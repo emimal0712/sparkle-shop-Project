@@ -1,0 +1,394 @@
+const products = [
+  {
+    "id": 6,
+    "title": "Gaming Keyboard",
+    "description": "High performance mechanical gaming keyboard with RGB lights",
+    "price": 2499,
+    "category": "Electronics",
+    "image": "/products/gaming-keyboard.jpg",
+    "rating": {
+      rate: 4.5,
+      count: 95
+    },
+      quantity: 10
+  },
+  {
+    "id": 7,
+    "title": "Wireless Gaming Mouse",
+    "description": "Wireless gaming mouse with smooth precision control",
+    "price": 1499,
+    "category": "Electronics",
+    "image": "/products/gaming-mouse.jpg",
+    "rating": {
+      rate: 4.5,
+      count: 75
+    },
+      quantity: 10
+  },
+  {
+    "id": 8,
+    "title": "27 Gaming Monitor",
+    "description": "27 inch Full HD gaming monitor with high refresh rate",
+    "price": 18999,
+    "category": "Electronics",
+    "image": "/products/gaming-monitor.jpg",
+    "rating": {
+      rate: 4.6,
+      count: 96
+    },
+      quantity: 10
+  },
+  {
+    "id": 9,
+    "title": "Gaming Headset",
+    "description": "Noise cancelling gaming headset with microphone",
+    "price": 2799,
+    "category": "Electronics",
+    "image": "/products/gaming-headset.jpg",
+    "rating": {
+      rate: 5.0,
+      count: 99
+    },
+      quantity: 10
+  },
+  {
+    "id": 10,
+    "title": "Ergonomic Office Chair",
+    "description": "Comfortable ergonomic chair for office and gaming setup",
+    "price": 8999,
+    "category": "Furniture",
+    "image": "/products/office-chair.jpg",
+    "rating": {
+      rate: 4.6,
+      count: 73
+    },
+      quantity: 10
+  },
+  {
+    "id": 11,
+    "title": "Laptop Backpack",
+    "description": "Water resistant backpack suitable for laptops",
+    "price": 1299,
+    "category": "Accessories",
+    "image": "/products/laptop-backpack.jpg",
+    "rating": {
+      rate: 6.5,
+      count: 30
+    },
+      quantity: 10
+  },
+  {
+    "id": 12,
+    "title": "Smart Watch",
+    "description": "Smart watch with health tracking features",
+    "price": 3999,
+    "category": "Electronics",
+    "image": "/products/smart-watch.jpg",
+    "rating": {
+      rate: 4.5,
+      count: 95
+    },
+      quantity: 10
+  },
+{
+  "id": 13,
+  "title": "Wireless Earbuds",
+  "description": "Wireless earbuds with premium sound quality",
+  "price": 2499,
+  "category": "Electronics",
+  "image": "/products/wireless-earbuds.jpg",
+  "rating": {
+      rate: 6.5,
+      count: 75
+    },
+      quantity: 10
+},
+{
+  "id": 14,
+  "title": "Power Bank",
+  "description": "20000mAh fast charging power bank",
+  "price": 1799,
+  "category": "Electronics",
+  "image": "/products/powerbank.jpg",
+  "rating": {
+      rate: 3.5,
+      count: 45
+    },
+      quantity: 10
+},
+{
+  "id": 15,
+  "title": "Bluetooth Speaker",
+  "description": "Portable bluetooth speaker with clear audio",
+  "price": 2299,
+  "category": "Electronics",
+  "image": "/products/speaker.jpg",
+  "rating": {
+    rate: 2.5,
+      count: 85
+    },
+      quantity: 10
+},
+{
+  "id": 16,
+  "title": "Samsung Smartphone",
+  "description": "Latest Samsung smartphone with advanced features",
+  "price": 24999,
+  "category": "Mobiles",
+  "image": "/products/samsung-phone.jpg",
+  "rating": {
+    rate: 4.5,
+      count: 93
+    },
+      quantity: 10
+},
+{
+  "id": 17,
+  "title": "Apple iPhone",
+  "description": "Premium Apple iPhone with high quality camera",
+  "price": 69999,
+  "category": "Mobiles",
+  "image": "/products/iphone.jpg",
+  "rating": {
+      rate: 2.5,
+      count: 65
+    },
+      quantity: 10
+},
+{
+  "id": 18,
+  "title": "Dell Laptop",
+  "description": "Powerful Dell laptop for work and entertainment",
+  "price": 54999,
+  "category": "Laptops",
+  "image": "/products/dell-laptop.jpg",
+  "rating": {
+    rate: 4.8,
+      count: 55
+    },
+      quantity: 10
+},
+{
+  "id": 19,
+  "title": "Apple MacBook Air",
+  "description": "Apple MacBook Air with powerful performance",
+  "price": 94999,
+  "category": "Laptops",
+  "image": "/products/macbook.jpg",
+  "rating": {
+    rate: 1.5,
+      count: 93
+    },
+      quantity: 10
+},
+{
+  "id": 20,
+  "title": "Canon DSLR Camera",
+  "description": "Professional DSLR camera for photography",
+  "price": 48999,
+  "category": "Cameras",
+  "image": "/products/camera.jpg",
+  "rating": {
+    rate: 4.0,
+      count: 95
+    },
+      quantity: 10
+},
+{
+  "id": 21,
+  "title": "Modern Table Lamp",
+  "description": "Modern table lamp suitable for bedroom and study room",
+  "price": 499,
+  "category": "Home",
+  "image": "/products/lamp.jpg",
+  "rating": {
+    rate: 4.4,
+      count: 59
+    },
+      quantity: 10
+},
+{
+  "id": 22,
+  "title": "Sneakers",
+  "description": "Stylish comfortable sneakers for daily wear",
+  "price": 4299,
+  "category": "Fashion",
+  "image": "/products/sneakers.jpg",
+  "rating": {
+    rate: 4.7,
+      count: 98
+    },
+      quantity: 10
+},
+{
+  "id": 23,
+  "title": "Men's Hoodie",
+  "description": "Premium cotton hoodie with comfortable fabric",
+  "price": 1299,
+  "category": "Fashion",
+  "image": "/products/hoodie.jpg",
+  "rating": {
+    rate: 3.5,
+      count: 65
+    },
+      quantity: 10
+},
+{
+  "id": 24,
+  "title": "Women's Handbag",
+  "description": "Elegant handbag with spacious storage",
+  "price": 2199,
+  "category": "Fashion",
+  "image": "/products/handbag.jpg",
+  "rating": {
+      rate: 4.7,
+      count: 91
+    },
+      quantity: 10
+},
+{
+  "id": 25,
+  "title": "Stainless Steel Bottle",
+  "description": "Durable stainless steel bottle for daily use",
+  "price": 699,
+  "category": "Home",
+  "image": "/products/bottle.jpg",
+  "rating": {
+      rate: 5.7,
+      count: 91
+    },
+      quantity: 10
+},
+{
+  "id": 26,
+  "title": "Coffee Maker",
+  "description": "Automatic coffee maker for making fresh coffee",
+  "price": 2999,
+  "category": "Home Appliances",
+  "image": "/products/coffee-maker.jpg",
+  "rating": {
+      rate: 5.7,
+      count: 98
+    },
+      quantity: 10
+},
+{
+  "id": 27,
+  "title": "Air Fryer",
+  "description": "Healthy cooking air fryer with modern features",
+  "price": 5499,
+  "category": "Home Appliances",
+  "image": "/products/air-fryer.jpg",
+  "rating": {
+    rate: 4.6,
+      count: 90
+    },
+      quantity: 10
+},
+{
+  "id": 28,
+  "title": "LED Desk Lamp",
+  "description": "LED desk lamp with adjustable brightness",
+  "price": 899,
+  "category": "Home",
+  "image": "/products/led-lamp.jpg",
+  "rating": {
+      rate: 4.4,
+      count: 91
+    },
+      quantity: 10
+},
+{
+  "id": 29,
+  "title": "Wireless Charger",
+  "description": "Fast wireless charging pad for smartphones",
+  "price": 999,
+  "category": "Accessories",
+  "image": "/products/wireless-charger.jpg",
+  "rating": {
+      rate: 4.5,
+      count: 20
+    },
+      quantity: 10
+},
+{
+  "id": 30,
+  "title": "External SSD 1TB",
+  "description": "High speed 1TB external SSD storage device",
+  "price": 6999,
+  "category": "Storage",
+  "image": "/products/ssd.jpg",
+  "rating": {
+      rate: 4.8,
+      count: 51
+    },
+      quantity: 10
+},
+{
+  "id": 31,
+  "title": "Mechanical Pencil Set",
+  "description": "Premium mechanical pencil set for students",
+  "price": 499,
+  "category": "Stationery",
+  "image": "/products/pencil-set.jpg",
+  "rating": {
+      rate: 4.3,
+      count: 67
+    },
+      quantity: 10
+},
+{
+  "id": 32,
+  "title": "Study Table",
+  "description": "Wooden study table with storage space",
+  "price": 5999,
+  "category": "Furniture",
+  "image": "/products/study-table.jpg",
+  "rating": {
+    rate: 4.4,
+      count: 71
+    },
+      quantity: 10
+},
+{
+  "id": 33,
+  "title": "Premium Notebook Planner",
+  "description": "Premium notebook planner for organizing tasks",
+  "price": 399,
+  "category": "Stationery",
+  "image": "/products/notebook.jpg",
+  "rating": {
+    rate: 4.3,
+      count: 61
+    },
+      quantity: 10
+},
+{
+  "id": 34,
+  "title": "Premium Perfume",
+  "description": "Long lasting premium fragrance perfume",
+  "price": 2799,
+  "category": "Beauty",
+  "image": "/products/perfume.jpg",
+  "rating":{
+    rate: 4.7,
+    count: 78
+  },
+  "quantity": 10
+},
+{
+  "id": 35,
+  "title": "Adjustable Dumbbells",
+  "description": "Adjustable dumbbells for home workouts",
+  "price": 7999,
+  "category": "Fitness",
+  "image": "/products/dumbbells.jpg",
+  "rating": {
+    rate: 4.9,
+      count: 98
+    },
+      quantity: 10
+}
+];
+
+export default products;
