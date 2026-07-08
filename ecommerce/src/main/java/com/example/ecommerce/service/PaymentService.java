@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentService {
 
-    private static final String KEY = "rzp_test_TAvOdbovcs9IkI";
-    private static final String SECRET = "x5u9wxh2cTStFuKKSbBV";
+    private static final String KEY = "rzp_test_TAzRPPGucbmSDo";
+    private static final String SECRET = "yw7JEK03PR1UMFk2sx6kABV1";
 
     // Create Razorpay Order
     public JSONObject createRazorpayOrder(double amount) throws RazorpayException {

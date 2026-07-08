@@ -216,13 +216,11 @@ function Checkout() {
       0
     );
 
-
-
     try{
 
       const response =
 await axios.post(
-  `http://localhost:8081/payment/create?amount=${total}`
+  "http://localhost:8081/payment/create?amount=100"
 );
 
 
@@ -235,7 +233,7 @@ const razorpayOrder =
 
       const options = {
 
-key: "rzp_test_TAvOdbovcs9IkI",
+key: "rzp_test_TAzRPPGucbmSDo",
 
 amount: razorpayOrder.amount,
 
