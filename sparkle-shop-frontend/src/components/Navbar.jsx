@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
@@ -13,13 +12,18 @@ function Navbar() {
   );
 
   const totalItems = cart.reduce(
-    (total, item) =>
-      total + item.qty,
+    (total, item) => total + item.qty,
     0
   );
 
-  const { user, logout } =
-    useAuth();
+  const { user, logout } = useAuth();
+
+console.log(user);
+console.log(user?.role);
+
+const isAdmin = user?.role === "admin";
+
+console.log(isAdmin);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
@@ -54,54 +58,58 @@ function Navbar() {
           📦 Orders
         </Link>
 
-        <Link
-          className="text-white text-decoration-none"
-          to="/inventory"
-        >
-          📦 Inventory
-        </Link>
+        {isAdmin && (
+          <>
+            <Link
+              className="text-white text-decoration-none"
+              to="/inventory"
+            >
+              📦 Inventory
+            </Link>
 
-        <Link
-          className="text-white text-decoration-none"
-          to="/admin"
-        >
-          📊 Dashboard
-        </Link>
+            <Link
+              className="text-white text-decoration-none"
+              to="/admin"
+            >
+              📊 Dashboard
+            </Link>
 
-        <Link
-          className="text-white text-decoration-none"
-          to="/admin-products"
-        >
-          🛍 Products
-        </Link>
+            <Link
+              className="text-white text-decoration-none"
+              to="/admin-products"
+            >
+              🛍 Products
+            </Link>
 
-        <Link
-          className="text-white text-decoration-none"
-          to="/admin-users"
-        >
-          👥 Users
-        </Link>
+            <Link
+              className="text-white text-decoration-none"
+              to="/admin-users"
+            >
+              👥 Users
+            </Link>
 
-        <Link
-          className="text-white text-decoration-none"
-          to="/admin-logs"
-        >
-          📜 Logs
-        </Link>
+            <Link
+              className="text-white text-decoration-none"
+              to="/admin-logs"
+            >
+              📜 Logs
+            </Link>
+          </>
+        )}
 
         {user ? (
           <div className="dropdown">
 
-  <button
-    className="btn btn-outline-light dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    data-bs-auto-close="outside"
-    aria-expanded='false'
-  >
-    👤 {user.name}
-  </button>
-  
+            <button
+              className="btn btn-outline-light dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
+              👤 {user.name}
+            </button>
+
             <ul className="dropdown-menu dropdown-menu-end">
 
               <li>

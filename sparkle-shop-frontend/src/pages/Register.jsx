@@ -103,6 +103,16 @@ addNotification(
               onSubmit={handleSubmit}
             >
 
+              <input
+  type="text"
+  name="name"
+  placeholder="Full Name"
+  className="form-control mb-3"
+  value={formData.name}
+  onChange={handleChange}
+  required
+/>
+
              <input
              type="text"
              name="username"

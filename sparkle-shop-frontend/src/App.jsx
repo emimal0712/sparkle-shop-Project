@@ -50,6 +50,8 @@ from "./pages/AdminUsers";
 import AdminActivityLogs
 from "./pages/AdminActivityLogs";
 
+import AdminRoute from "./components/AdminRoute";
+
 function App() {
   return (
     <div
@@ -139,49 +141,49 @@ function App() {
           />
 
           <Route
-            path="/inventory"
-            element={
-              <ProtectedRoute>
-                <InventoryDashboard />
-              </ProtectedRoute>
-            }
-          />
+  path="/inventory"
+  element={
+    <AdminRoute>
+      <InventoryDashboard />
+    </AdminRoute>
+  }
+/>
 
         <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
+  path="/admin"
+  element={
+    <AdminRoute>
+      <AdminDashboard />
+    </AdminRoute>
+  }
+/>
 
       <Route
-        path="/admin-products"
-        element={
-          <ProtectedRoute>
-            <AdminProducts />
-          </ProtectedRoute>
-        }
-      />
+  path="/admin-products"
+  element={
+    <AdminRoute>
+      <AdminProducts />
+    </AdminRoute>
+  }
+/>
 
       <Route
-        path="/add-product"
-        element={
-          <ProtectedRoute>
-            <AddProduct />
-          </ProtectedRoute>
-        }
-      />
+  path="/add-product"
+  element={
+    <AdminRoute>
+      <AddProduct />
+    </AdminRoute>
+  }
+/>
 
         <Route
-          path="/edit-product/:id"
-          element={
-            <ProtectedRoute>
-              <EditProduct />
-            </ProtectedRoute>
-          }
-        />
+  path="/edit-product/:id"
+  element={
+    <AdminRoute>
+      <EditProduct />
+    </AdminRoute>
+  }
+/>
 
         <Route
           path="/admin-orders"
@@ -193,7 +195,9 @@ function App() {
 <Route
   path="/admin-users"
   element={
-    <AdminUsers />
+    <AdminRoute>
+      <AdminUsers />
+    </AdminRoute>
   }
 />
 
@@ -201,7 +205,9 @@ function App() {
 <Route
   path="/admin-logs"
   element={
-    <AdminActivityLogs />
+    <AdminRoute>
+      <AdminActivityLogs />
+    </AdminRoute>
   }
 />
         </Routes>

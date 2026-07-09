@@ -218,9 +218,8 @@ function Checkout() {
 
     try{
 
-      const response =
-await axios.post(
-  "http://localhost:8081/payment/create?amount=100"
+      const response = await axios.post(
+  `http://localhost:8081/payment/create?amount=${total}`
 );
 
 
@@ -376,12 +375,13 @@ required
 
 
 <button
-className="btn btn-primary w-100"
-type="submit"
+  className="btn btn-primary w-100"
+  type="submit"
 >
-
-Pay Now
-
+  Pay ₹{cart.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  )}
 </button>
 
 

@@ -8,243 +8,175 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import axios from "axios";
+
 import {
   logActivity,
 } from "../utils/activityLogger";
 
 function EditProduct() {
+  const { id } = useParams();
 
-  const { id } =
-    useParams();
-
-  const navigate =
-    useNavigate();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-  name: "",
-  price: "",
-  category: "",
-  image: "",
-  description: "",
-});
+    name: "",
+    price: "",
+    category: "",
+    image: "",
+    description: "",
+  });
 
   useEffect(() => {
-
     const products =
       JSON.parse(
-        localStorage.getItem(
-          "adminProducts"
-        )
+        localStorage.getItem("adminProducts")
       ) || [];
 
-    const product =
-      products.find(
-        (p) =>
-          p.id.toString() === id
-      );
+    const product = products.find(
+      (p) => p.id.toString() === id
+    );
 
     if (product) {
-
       setFormData({
-        name:
-          product.name,
-        price:
-          product.price,
-        category:
-          product.category,
-        image:
-          product.image,
-        description:
-          product.description,
+        name: product.name,
+        price: product.price,
+        category: product.category,
+        image: product.image,
+        description: product.description,
       });
-
     }
-
   }, [id]);
 
-  const handleChange = (
-    e
-  ) => {
-
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]:
-        e.target.value,
+      [e.target.name]: e.target.value,
     });
-
   };
 
-  const handleSubmit = (
-    e
-  ) => {
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const products =
       JSON.parse(
-        localStorage.getItem(
-          "adminProducts"
-        )
+        localStorage.getItem("adminProducts")
       ) || [];
 
-    const updatedProducts =
-      products.map(
-        (product) =>
-
-          product.id.toString() ===
-          id
-
-            ? {
-                ...product,
-                ...formData,
-                price:
-                  Number(
-                    formData.price
-                  ),
-              }
-
-            : product
-      );
+    const updatedProducts = products.map(
+      (product) =>
+        product.id.toString() === id
+          ? {
+              ...product,
+              ...formData,
+              price: Number(formData.price),
+            }
+          : product
+    );
 
     localStorage.setItem(
       "adminProducts",
-      JSON.stringify(
-        updatedProducts
-      )
+      JSON.stringify(updatedProducts)
     );
 
-    alert(
-      "Product Updated Successfully"
-    );
+    try {
+      await axios.put(
+        `http://localhost:8081/products/${id}`,
+        {
+          id: Number(id),
+          name: formData.name,
+          price: Number(formData.price),
+          category: formData.category,
+          image: formData.image,
+          description: formData.description,
+        }
+      );
 
-    logActivity(
-      `Edited Product: ${formData.name}`,
-      "Admin"
-    );
+      alert("Product Updated Successfully");
 
-    navigate(
-      "/admin-products"
-    );
+      logActivity(
+        `Edited Product: ${formData.name}`,
+        "Admin"
+      );
+
+      navigate("/admin-products");
+    } catch (error) {
+      console.error(error);
+      alert("Backend update failed!");
+    }
   };
 
   return (
     <div className="container mt-5">
-
       <div className="card p-4 shadow">
-
         <h2 className="mb-4">
           Edit Product
         </h2>
 
-        <form
-          onSubmit={
-            handleSubmit
-          }
-        >
-
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
-
-            <label>
-              Product Title
-            </label>
+            <label>Product Title</label>
 
             <input
               type="text"
               className="form-control"
               name="name"
-              value={
-                formData.name
-              }
-              onChange={
-                handleChange
-              }
+              value={formData.name}
+              onChange={handleChange}
               required
             />
-
           </div>
 
           <div className="mb-3">
-
-            <label>
-              Price
-            </label>
+            <label>Price</label>
 
             <input
               type="number"
               className="form-control"
               name="price"
-              value={
-                formData.price
-              }
-              onChange={
-                handleChange
-              }
+              value={formData.price}
+              onChange={handleChange}
               required
             />
-
           </div>
 
           <div className="mb-3">
-
-            <label>
-              Category
-            </label>
+            <label>Category</label>
 
             <input
               type="text"
               className="form-control"
               name="category"
-              value={
-                formData.category
-              }
-              onChange={
-                handleChange
-              }
+              value={formData.category}
+              onChange={handleChange}
               required
             />
-
           </div>
 
           <div className="mb-3">
-
-            <label>
-              Image URL
-            </label>
+            <label>Image URL</label>
 
             <input
               type="text"
               className="form-control"
               name="image"
-              value={
-                formData.image
-              }
-              onChange={
-                handleChange
-              }
+              value={formData.image}
+              onChange={handleChange}
               required
             />
-
           </div>
 
           <div className="mb-3">
-
-            <label>
-              Description
-            </label>
+            <label>Description</label>
 
             <textarea
               className="form-control"
               rows="5"
               name="description"
-              value={
-                formData.description
-              }
-              onChange={
-                handleChange
-              }
+              value={formData.description}
+              onChange={handleChange}
               required
             />
-
           </div>
 
           <button
@@ -253,11 +185,8 @@ function EditProduct() {
           >
             Update Product
           </button>
-
         </form>
-
       </div>
-
     </div>
   );
 }

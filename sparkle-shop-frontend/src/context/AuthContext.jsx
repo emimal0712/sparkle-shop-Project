@@ -19,17 +19,41 @@ export function AuthProvider({
     useState(null);
 
   useEffect(() => {
-    const savedUser =
-      JSON.parse(
-        localStorage.getItem(
-          "currentUser"
-        )
-      );
+  // Create default admin account only once
+  const users =
+    JSON.parse(localStorage.getItem("users")) || [];
 
-    if (savedUser) {
-      setUser(savedUser);
-    }
-  }, []);
+  const adminExists = users.some(
+    (u) => u.role === "admin"
+  );
+
+  if (!adminExists) {
+    users.push({
+      id: 1,
+      name: "Administrator",
+      email: "admin", // username
+      password: "123456",
+      role: "admin",
+      blocked: false,
+      phone: "",
+      address: "",
+      createdAt: new Date().toISOString(),
+    });
+
+    localStorage.setItem(
+      "users",
+      JSON.stringify(users)
+    );
+  }
+
+  const savedUser = JSON.parse(
+    localStorage.getItem("currentUser")
+  );
+
+  if (savedUser) {
+    setUser(savedUser);
+  }
+}, []);
 
 const register = (
   name,
@@ -48,30 +72,20 @@ const register = (
   if (exists) {
     return {
       success: false,
-      message:
-        "Email already exists",
+      message: "Username already exists",
     };
   }
 
 const newUser = {
   id: Date.now(),
-
   name,
-
-  email,
-
+  email, 
   password,
-
   role: "user",
-
   blocked: false,
-
   phone: "",
-
   address: "",
-
-  createdAt:
-    new Date().toISOString(),
+  createdAt: new Date().toISOString(),
 };
 
   users.push(newUser);
