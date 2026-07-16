@@ -27,31 +27,31 @@ Sparkle's Shop is a basic full-stack e-commerce web application developed as par
 ## Screenshots
 
 ### Home Page
-![Home Page](images/home.png)
+![Home Page](home.png)
 
 ### Products Page
-![Products Page](images/products.png)
+![Products Page](products.png)
 
 ### Product Details
-![Product Details](images/product-details.png)
+![Product Details](product-details.png)
 
 ### Shopping Cart
-![Shopping Cart](images/cart.png)
+![Shopping Cart](cart.png)
 
 ### Login Page
-![Login Page](images/login.png)
+![Login Page](login.png)
 
 ### Register Page
-![Register Page](images/register.png)
+![Register Page](register.png)
 
 ### Admin Dashboard
-![Admin Dashboard](images/admin-dashboard.png)
+![Admin Dashboard](admin-dashboard.png)
 
 ### Add Product Page
-![Add Product Page](images/add-product.png)
+![Add Product Page](add-product.png)
 
 ### Checkout Page
-![Checkout Page](images/checkout.png)
+![Checkout Page](checkout.png)
 
 ## How to Run
 
