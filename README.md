@@ -23,8 +23,35 @@ Sparkle's Shop is a basic full-stack e-commerce web application developed as par
 - Git & GitHub
 - Postman
 
+
 ## Screenshots
-(Add your project screenshots here.)
+
+### Home Page
+![Home Page](images/home.png)
+
+### Products Page
+![Products Page](images/products.png)
+
+### Product Details
+![Product Details](images/product-details.png)
+
+### Shopping Cart
+![Shopping Cart](images/cart.png)
+
+### Login Page
+![Login Page](images/login.png)
+
+### Register Page
+![Register Page](images/register.png)
+
+### Admin Dashboard
+![Admin Dashboard](images/admin-dashboard.png)
+
+### Add Product Page
+![Add Product Page](images/add-product.png)
+
+### Checkout Page
+![Checkout Page](images/checkout.png)
 
 ## How to Run
 
